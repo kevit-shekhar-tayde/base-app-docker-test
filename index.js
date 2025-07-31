@@ -4,7 +4,7 @@ const { Client } = require('pg');
 
 const app = express();
 
-const port = process.env.PORT || 30510;
+const port = process.env.PORT || 3000;
 
 const db = new Client({
   host: process.env.PGHOST,
