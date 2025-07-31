@@ -3,6 +3,11 @@ const express = require('express');
 const { Client } = require('pg');
 
 const app = express();
+app.use((req, res, next) => {
+  console.log('Request headers:', req.headers);
+  console.log('Request URL:', req.url);
+  next();
+});
 
 const port = process.env.PORT || 3000;
 
@@ -22,12 +27,6 @@ db.connect()
   })
   .catch((err) => {
     console.error('Failed to connect to PostgreSQL:', err);
-  });
-
-  app.use((req, res, next) => {
-    console.log('Request headers:', req.headers);
-    console.log('Request URL:', req.url);
-    next();
   });
 
 app.get('/', async (req, res) => {
