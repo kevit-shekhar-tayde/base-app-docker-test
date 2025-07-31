@@ -24,6 +24,12 @@ db.connect()
     console.error('Failed to connect to PostgreSQL:', err);
   });
 
+  app.use((req, res, next) => {
+    console.log('Request headers:', req.headers);
+    console.log('Request URL:', req.url);
+    next();
+  });
+
 app.get('/', async (req, res) => {
   res.send('application running from your k8s');
 });
