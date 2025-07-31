@@ -14,6 +14,8 @@ const db = new Client({
   password: process.env.PGPASSWORD,
 });
 
+console.log(process.env.PGHOST,process.env.PGPORT,process.env.PGDATABASE,process.env.PGUSER,process.env.PGPASSWORD)
+
 db.connect()
   .then(() => {
     console.log('Connected to PostgreSQL database');
